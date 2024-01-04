@@ -1,0 +1,22 @@
+body {
+    background-color: #1a1a1a; /* Mørk bakgrunnsfarge */
+    color: #fff; /* Hvit tekstfarge */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #ffcc00; /* Gul overskriftsfarge */
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Legg til flere stiler etter behov */
