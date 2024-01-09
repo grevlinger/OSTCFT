@@ -1,146 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oppgave Side</title>
-    <style>
-        body {
-            background-color: #303030;
-            color: #ffffff;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-
-        #oppgaver-container {
-            margin-bottom: 20px;
-        }
-
-        #svar-boks {
-            background-color: #424242;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
-
-        .fullfort-oppgave {
-            text-decoration: line-through;
-            color: #777;
-        }
-
-        #nullstill-knapp {
-            background-color: #d9534f;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Nettside med Boks</title>
 </head>
 <body>
-    <h1>Oppgaver</h1>
-
-    <div id="oppgaver-container">
-        <ul id="oppgaver-liste"></ul>
-    </div>
-
-    <div id="svar-boks">
-        <label for="svar-input">UTM 32 N: 6649787 Ø: 614490</label>
-        <input type="text" id="svar-input">
-        <button onclick="sjekkSvar()">Sjekk Svar</button>
-    </div>
-
-    <button id="nullstill-knapp" onclick="nullstillFremgang()">Nullstill Fremgang</button>
-
-    <script>
-        // Oppgave-objekter med spørsmål og riktige svar
-        var oppgaver = [
-            { sporsmal: 'Hvor er jeg?', svar: 'Kiwi Kjeller' },
-            { sporsmal: 'NESTE', svar: 'svar' },
-            // Legg til flere oppgaver etter behov
-        ];
-
-        function leggTilOppgave(sporsmal) {
-            var oppgaverListe = document.getElementById('oppgaver-liste');
-            var nyOppgave = document.createElement('li');
-            nyOppgave.innerText = sporsmal;
-            oppgaverListe.appendChild(nyOppgave);
-        }
-
-        function leggTilFullfortOppgave(sporsmal) {
-            var oppgaverListe = document.getElementById('oppgaver-liste');
-            var fullfortOppgave = document.createElement('li');
-            fullfortOppgave.innerHTML = '<s>' + sporsmal + '</s>';
-            fullfortOppgave.classList.add('fullfort-oppgave');
-            oppgaverListe.appendChild(fullfortOppgave);
-        }
-
-        function sjekkSvar() {
-            var svarInput = document.getElementById('svar-input').value;
-
-            // Finn gjeldende oppgave
-            var gjeldendeOppgave = oppgaver[0]; // Du kan implementere en mer avansert logikk for å håndtere flere oppgaver
-
-            // Sjekk om svaret er riktig
-            if (svarInput.toLowerCase() === gjeldendeOppgave.svar.toLowerCase()) {
-                leggTilFullfortOppgave(gjeldendeOppgave.sporsmal);
-                // Nullstill svaret
-                document.getElementById('svar-input').value = '';
-
-                // Hent og vis neste oppgave (du kan implementere logikk for flere oppgaver)
-                oppgaver.shift();
-                if (oppgaver.length > 0) {
-                    alert('Riktig svar! Neste oppgave: ' + oppgaver[0].sporsmal);
-                    lagreFremgang(); // Lagre fremgang etter hver oppgave
-                } else {
-                    alert('Alle oppgaver er fullført!');
-                    nullstillFremgang(); // Nullstill fremgang når alle oppgaver er fullført
-                }
-            } else {
-                alert('Feil svar. Prøv igjen.');
-            }
-        }
-
-        function lagreFremgang() {
-            // Lagre oppgaver som er fullført i localStorage
-            localStorage.setItem('fullforteOppgaver', JSON.stringify(oppgaver));
-        }
-
-        function hentFremgang() {
-            // Hent fullførte oppgaver fra localStorage
-            var lagretOppgaver = localStorage.getItem('fullforteOppgaver');
-            return lagretOppgaver ? JSON.parse(lagretOppgaver) : [];
-        }
-
-        function nullstillFremgang() {
-            // Nullstill fullførte oppgaver i localStorage
-            localStorage.removeItem('fullforteOppgaver');
-
-            // Fjern alle oppgaver fra listen på siden
-            var oppgaverListe = document.getElementById('oppgaver-liste');
-            oppgaverListe.innerHTML = '';
-
-            // Nullstill også oppgave-arrayet for å starte på nytt
-            oppgaver = [
-                { sporsmal: 'Hva er hovedstaden i Norge?', svar: 'Oslo' },
-                { sporsmal: 'Hva er hovedstaden i Frankrike?', svar: 'Paris' },
-                // Legg til flere oppgaver etter behov
-            ];
-        }
-
-        // Gjenopprett tidligere fullførte oppgaver ved lasting av siden
-        var tidligereFullforteOppgaver = hentFremgang();
-        tidligereFullforteOppgaver.forEach(function(oppgave) {
-            leggTilFullfortOppgave(oppgave.sporsmal);
-        });
-
-        // Vis første oppgave ved siden av svarboksen
-        if (oppgaver.length > 0) {
-            alert('Første oppgave: ' + oppgaver[0].sporsmal);
-        }
-    </script>
+  <div class="info-box" id="infoBox">
+    <h2>NORD</h2>
+    <p>6649787.3</p>
+    <h2>ØST</h2>
+    <p>614490</p>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
