@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave Side</title>
+    <style>
+        body {
+            background-color: #303030;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #424242;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        #oppgaver-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oppgaver</h1>
+
+    <div id="oppgaver-container"></div>
+
+    <script>
+        function leggTilOppgaveBoks() {
+            // Opprett en ny boks
+            var nyBoks = document.createElement('div');
+            nyBoks.className = 'box';
+            nyBoks.innerText = 'Ny Oppgave';
+
+            // Legg til boksen i containeren
+            var oppgaverContainer = document.getElementById('oppgaver-container');
+            oppgaverContainer.appendChild(nyBoks);
+        }
+
+        // Kall denne funksjonen når brukeren svarer riktig på en oppgave
+        // for å legge til en ny boks.
+        // For eksempel: leggTilOppgaveBoks();
+    </script>
+</body>
+</html>
