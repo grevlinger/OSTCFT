@@ -5,10 +5,24 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #222;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 .info-box {
-  border: 2px solid #333;
+  border: 2px solid #555;
   padding: 20px;
   text-align: center;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: #ffa500; /* Orange color for headings */
+}
+
+p {
+  margin: 0;
 }
