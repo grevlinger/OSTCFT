@@ -6,23 +6,65 @@ body {
   justify-content: center;
   height: 100vh;
   background-color: #5D738C;
-  color: #5D738C;
+  color: #fff;
   font-family: 'Helvetica Neue', sans-serif;
 }
 
 .info-box {
-  border: 2px solid #555;
+  border: 2px solid #8899A6;
   padding: 20px;
   text-align: center;
-  background-color: #333;
+  background-color: #6D84A3;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
-  color: #ffa500; /* Orange color for headings */
+  color: #ffa500;
 }
 
 p {
   margin: 0;
+}
+
+.answer-box {
+  margin-top: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #8899A6;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.new-box {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.new-box a {
+  color: #ffa500;
 }
