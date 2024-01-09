@@ -8,12 +8,26 @@
 </head>
 <body>
   <div class="info-box" id="infoBox">
-    <h1>UTM 32</h1>
+    <h2>UTM 32</h2>
     <h2>NORD</h2>
     <p>6649787.3</p>
     <h2>ØST</h2>
     <p>614490</p>
   </div>
+  
+  <div class="answer-box" id="answerBox">
+    <form id="answerForm">
+      <label for="answerTextarea">Ditt svar:</label>
+      <input type="text" id="answerTextarea" name="answer" />
+      <button type="button" onclick="checkAnswer()">Send svar</button>
+    </form>
+  </div>
+  
+  <div class="new-box" id="newBox" style="display:none;">
+    <p>Ny tekstboks dukket opp!</p>
+    <a href="ny_side.html">Gå til ny side</a>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
