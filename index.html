@@ -29,12 +29,26 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+
+        #svar-boks {
+            background-color: #424242;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>Oppgaver</h1>
 
     <div id="oppgaver-container"></div>
+
+    <div id="svar-boks">
+        <label for="svar-input">Ditt svar:</label>
+        <input type="text" id="svar-input">
+        <button onclick="sjekkSvar()">Sjekk Svar</button>
+    </div>
 
     <script>
         function leggTilOppgaveBoks() {
@@ -48,9 +62,13 @@
             oppgaverContainer.appendChild(nyBoks);
         }
 
-        // Kall denne funksjonen når brukeren svarer riktig på en oppgave
-        // for å legge til en ny boks.
-        // For eksempel: leggTilOppgaveBoks();
-    </script>
-</body>
-</html>
+        function sjekkSvar() {
+            var svarInput = document.getElementById('svar-input').value;
+
+            // Legg til logikk for å sjekke svaret
+            if (svarInput === 'riktig') {
+                leggTilOppgaveBoks();
+                // Du kan også nullstille svaret her hvis ønskelig
+                document.getElementById('svar-input').value = '';
+            } else {
+                alert('Feil svar. Prøv igjen.');
