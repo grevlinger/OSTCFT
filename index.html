@@ -21,13 +21,8 @@
             background-color: #424242;
             padding: 20px;
             border-radius: 10px;
-            width: 200px;
+            width: 300px;
             text-align: center;
-        }
-
-        #oppgaver-liste {
-            list-style-type: none;
-            padding: 0;
         }
 
         .fullfort-oppgave {
@@ -67,7 +62,7 @@
         function leggTilFullfortOppgave(sporsmal) {
             var oppgaverListe = document.getElementById('oppgaver-liste');
             var fullfortOppgave = document.createElement('li');
-            fullfortOppgave.innerText = sporsmal;
+            fullfortOppgave.innerHTML = '<s>' + sporsmal + '</s>';
             fullfortOppgave.classList.add('fullfort-oppgave');
             oppgaverListe.appendChild(fullfortOppgave);
         }
