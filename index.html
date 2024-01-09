@@ -29,6 +29,15 @@
             text-decoration: line-through;
             color: #777;
         }
+
+        #nullstill-knapp {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +52,8 @@
         <input type="text" id="svar-input">
         <button onclick="sjekkSvar()">Sjekk Svar</button>
     </div>
+
+    <button id="nullstill-knapp" onclick="nullstillFremgang()">Nullstill Fremgang</button>
 
     <script>
         // Oppgave-objekter med spørsmål og riktige svar
@@ -107,6 +118,17 @@
         function nullstillFremgang() {
             // Nullstill fullførte oppgaver i localStorage
             localStorage.removeItem('fullforteOppgaver');
+
+            // Fjern alle oppgaver fra listen på siden
+            var oppgaverListe = document.getElementById('oppgaver-liste');
+            oppgaverListe.innerHTML = '';
+
+            // Nullstill også oppgave-arrayet for å starte på nytt
+            oppgaver = [
+                { sporsmal: 'Hva er hovedstaden i Norge?', svar: 'Oslo' },
+                { sporsmal: 'Hva er hovedstaden i Frankrike?', svar: 'Paris' },
+                // Legg til flere oppgaver etter behov
+            ];
         }
 
         // Gjenopprett tidligere fullførte oppgaver ved lasting av siden
